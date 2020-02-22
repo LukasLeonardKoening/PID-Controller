@@ -57,7 +57,8 @@ int main() {
           double steer_value;
 
           // Use PID Controller to calculate the steering value
-          steer_value = pid.calcSteering(cte);
+          pid.UpdateError(cte);
+          steer_value = pid.evaluate();
           
           // DEBUG
           std::cout << "CTE: " << cte << " Steering Value: " << steer_value 
